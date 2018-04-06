@@ -1,16 +1,10 @@
 from django.shortcuts import render, redirect
-from accounts.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from accounts.forms import RegistrationForm, EditProfileForm
 
-def home(request):
-    numbers = [1,2,3,4,5]
-    name = 'Joonas'
-
-    args = {'myName': name, 'myNumbers': numbers}
-    return render(request, 'accounts/home.html', args)
 
 def register(request):
     if request.method =='POST':

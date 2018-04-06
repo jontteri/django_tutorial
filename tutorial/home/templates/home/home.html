@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="page-header">
+        <h1>Home page!</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" />
+    </form>
+    <h2>{{ text }}</h2>
+    {% for post in posts %}
+    <h2>{{ post.post }}</h2>
+    <p>Posted by: {{ post.user.get_full_name }} on <b>{{ post.updated }}</b></p>
+    {% endfor %}
+
+</div>
+{% endblock %}
